@@ -1,0 +1,178 @@
+
+<!-- Plugins and scripts required by this view-->
+<script src="node_modules/chart.js/dist/Chart.min.js"></script>
+<script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
+<script src="js/main.js"></script>
+
+
+
+
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-6 col-lg-3">
+
+      <div class="card text-white bg-primary">
+        <div class="card-body pb-0">
+          <div class="btn-group float-right">
+            <button class="btn btn-transparent p-0" type="button">
+              <i class="icon-settings"></i>
+            </button>
+          </div>
+          <div class="text-value" id="sensor1_value">-</div>
+          <div>Sensor 1</div>
+        </div>
+        <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+          <canvas class="chart" id="card-chart1" height="70"></canvas>
+        </div>
+        <div class="brand-card-body">
+          <div>
+            <div class="text-value" id="sensor1_value_min">-</div>
+            <div class="text-uppercase text-muted small">Min</div>
+          </div>
+          <div>
+            <div class="text-value" id="sensor1_value_max">-</div>
+            <div class="text-uppercase text-muted small">Max</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- /.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-info">
+        <div class="card-body pb-0">
+          <button class="btn btn-transparent p-0 float-right" type="button">
+            <i class="icon-location-pin"></i>
+          </button>
+          <div class="text-value" id="sensor2_value">-</div>
+          <div>Sensor 2</div>
+        </div>
+        <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+          <canvas class="chart" id="card-chart2" height="70"></canvas>
+        </div>
+
+        <div class="brand-card-body">
+          <div>
+            <div class="text-value" id="sensor2_value_min">-</div>
+            <div class="text-uppercase text-muted small">Min</div>
+          </div>
+          <div>
+            <div class="text-value" id="sensor2_value_max">-</div>
+            <div class="text-uppercase text-muted small">Max</div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <!-- /.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-warning">
+        <div class="card-body pb-0">
+          <div class="btn-group float-right">
+            <button class="btn btn-transparent p-0" type="button">
+              <i class="icon-settings"></i>
+            </button>
+          </div>
+          <div class="text-value" id="sensor3_value">-</div>
+          <div>Sensor 3</div>
+        </div>
+        <div class="chart-wrapper mt-3" style="height:70px;">
+          <canvas class="chart" id="card-chart3" height="70"></canvas>
+        </div>
+        <div class="brand-card-body">
+          <div>
+            <div class="text-value">500+</div>
+            <div class="text-uppercase text-muted small">contacts</div>
+          </div>
+          <div>
+            <div class="text-value">292</div>
+            <div class="text-uppercase text-muted small">feeds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-danger">
+        <div class="card-body pb-0">
+          <div class="btn-group float-right">
+            <button class="btn btn-transparent p-0">
+              <i class="icon-settings"></i>
+            </button>
+          </div>
+          <div class="text-value">9.823</div>
+          <div>Members online</div>
+        </div>
+        <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+          <canvas class="chart" id="card-chart4" height="70"></canvas>
+        </div>
+        <div class="brand-card-body">
+          <div>
+            <div class="text-value">894</div>
+            <div class="text-uppercase text-muted small">followers</div>
+          </div>
+          <div>
+            <div class="text-value">92</div>
+            <div class="text-uppercase text-muted small">circles</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-->
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-9">
+
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-5">
+              <h4 class="card-title mb-0">All Sensors</h4>
+              <div class="small text-muted">Latest 5 minutes</div>
+            </div>
+            <!-- /.col-->
+            <div class="col-sm-7 d-none d-md-block"></div>
+            <!-- /.col-->
+          </div>
+          <!-- /.row-->
+          <div class="chart-wrapper" style="height:250px;margin-top:40px;">
+            <canvas class="chart" id="main-chart" height="300"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+
+
+      <div class="card">
+        <div class="card-body text-center">
+          <div class="text-muted small text-uppercase font-weight-bold">Temperature</div>
+          <div class="text-value-lg py-3" id="weather_temperature">-</div>
+          <div class="chart-wrapper mx-auto" style="height:40px;width:80px">
+            <canvas class="chart chart-bar" id="sparkline-chart-1" height="40" width="80"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body text-center">
+          <div class="text-muted small text-uppercase font-weight-bold">Humidity</div>
+          <div class="text-value-lg py-3" id="weather_humidity">-</div>
+          <div class="chart-wrapper mx-auto" style="height:45px;width:150px">
+            <div class="progress progress-xs mt-2">
+              <div class="progress-bar bg-success" id="weather_humidity_progress" role="progressbar" style="width: 40%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
