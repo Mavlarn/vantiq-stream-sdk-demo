@@ -1,7 +1,10 @@
 
   // const params = { where: { id: { "$lt": 5 }}};
 
-  streamApi.timedQuery("tq_all_sensorStream", "Sensor", 20, 0, {}, null, (sensorData) => {
+  // Avoid re-initialize when open this view second time.
+if (typeof sensorListStream == undefined) {
+
+  const sensorListStream = streamApi.timedQuery("tq_all_sensorStream", "Sensor", 20, 0, {}, null).subscribe(sensorData => {
     console.log("all sensors count:", sensorData.length);
     if (this.theTable) {
       theTable.destroy();
@@ -12,3 +15,7 @@
     })
   });
 
+  function unsubscribeAll() {
+    sensorListStream.unsubscribe();
+  }
+}
